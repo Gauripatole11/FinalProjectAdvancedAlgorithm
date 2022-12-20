@@ -8,6 +8,10 @@ using namespace std;
 #include <chrono>
 using namespace std::chrono;
 
+/*
+
+complexity: O(2^N)
+*/
 class GreedyApproach {
     public:
     int binarysearch(int lo,int hi,int val,vector<int> a)
@@ -55,6 +59,11 @@ class GreedyApproach {
 
 
 
+/*
+
+complexity: O(2^N)
+*/
+
 class Bruteforce {
     public:
     int lengthOfLIS(vector<int>& nums) {
@@ -73,6 +82,11 @@ class Bruteforce {
 };
 
 
+
+/*
+
+complexity: O(N^2)
+*/
 class DynamicProgramming {
     public:
     int lengthOfLIS(vector<int>& nums) {
@@ -149,7 +163,7 @@ int main() {
     bf_answers.push_back(bf_sol);
 
     start = high_resolution_clock::now();
-    int greedy_sol = bf.lengthOfLIS(nums);
+    int greedy_sol = greedy.lengthOfLIS(nums);
     stop = high_resolution_clock::now();
     duration = duration_cast<microseconds>(stop - start);
     greedy_execution_time.push_back(duration.count());
@@ -208,10 +222,10 @@ bf_answers
 greedy_answers
 1,2,1,2,3,3,3,4,4,5,4,4,5,6,5,6,6,8,9,6,
 dp_execution_time
-1,1,1,4,1,1,1,4,1,1,1,2,2,2,2,8,3,3,3,7,
+1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,8,3,3,5,4,
 bf_execution_time
-0,0,0,0,0,1,2,3,3,4,6,6,10,12,13,20,19,107,67,47,
+0,0,0,0,1,1,1,3,2,4,5,5,9,11,12,19,18,120,93,45,
 greedy_execution_time
-0,0,0,0,0,0,1,2,2,3,5,5,9,12,12,18,18,89,63,44
+0,3,3,4,5,4,4,5,5,6,6,7,8,9,9,14,10,12,105,12
 
 */
